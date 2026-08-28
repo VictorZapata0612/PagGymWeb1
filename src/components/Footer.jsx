@@ -52,10 +52,10 @@ export default function Footer() {
               <div className="brand-icon">
                 <Dumbbell size={22} strokeWidth={2.5} />
               </div>
-              <span>PAG <span className="brand-tag">GYM</span></span>
+              <span>ATLAS <span className="brand-tag">FIT</span></span>
             </a>
             <p>
-              Tu centro de entrenamiento de fuerza, acondicionamiento y bienestar en el corazón de la ciudad. Menos ego, más energía.
+              Tu gimnasio en Yumbo, Valle del Cauca. Horarios amplios, entrenadores certificados y tarifas accesibles para toda la comunidad.
             </p>
             <div className="footer-socials">
               <a 
@@ -108,16 +108,19 @@ export default function Footer() {
             <h4>Visítanos</h4>
             <ul className="footer-links">
               <li className="footer-link" style={{ color: 'var(--text-main)', fontWeight: 600 }}>
-                Calle de Ponzano, 42 · Madrid
+                Cra. 5 # 10-54 · Yumbo, Valle del Cauca
               </li>
               <li className="footer-link">
-                Lun — Vie: 06:30 - 22:30
+                Lun — Vie: 6:00 AM — 11:00 PM
               </li>
               <li className="footer-link">
-                Sáb: 08:30 - 20:00 | Dom: 09:00 - 15:00
+                Sábados: 8:00 AM — 3:00 PM
               </li>
-              <li className="footer-link" style={{ color: 'var(--accent-primary)', fontWeight: 700 }}>
-                +34 912 345 678
+              <li className="footer-link">
+                Festivos: 9:00 AM — 2:00 PM
+              </li>
+              <li className="footer-link" style={{ color: '#f5a623', fontWeight: 700 }}>
+                ⏰ Golden Hour: 10 AM — 3 PM
               </li>
             </ul>
           </div>
@@ -125,7 +128,7 @@ export default function Footer() {
 
         {/* Footer Bottom Bar */}
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} PAG Gym S.L. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Atlas Fit · Yumbo, Valle del Cauca. Todos los derechos reservados.</p>
           <button 
             onClick={scrollToTop} 
             style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)' }}

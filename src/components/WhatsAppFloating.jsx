@@ -1,8 +1,8 @@
 import { MessageCircle } from 'lucide-react'
 
 export default function WhatsAppFloating() {
-  const phoneNumber = '34600000000'
-  const defaultMessage = '¡Hola PAG Gym! Me gustaría recibir más información sobre las tarifas y reservar una clase de prueba gratuita.'
+  const phoneNumber = '573000000000' // ← Cambia por el número real de Atlas Fit
+  const defaultMessage = '¡Hola Atlas Fit! Me gustaría recibir más información sobre las tarifas y membresías.'
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`
 
   return (
@@ -13,7 +13,7 @@ export default function WhatsAppFloating() {
         target="_blank" 
         rel="noreferrer" 
         className="whatsapp-tooltip"
-        aria-label="Chatear con un asesor de PAG Gym"
+        aria-label="Chatear con un asesor de Atlas Fit"
       >
         <span>● En línea</span> ¿Dudas? ¡Escríbenos!
       </a>
@@ -24,7 +24,7 @@ export default function WhatsAppFloating() {
         target="_blank" 
         rel="noreferrer" 
         className="whatsapp-btn"
-        aria-label="Abrir WhatsApp para contactar con PAG Gym"
+        aria-label="Abrir WhatsApp para contactar con Atlas Fit"
       >
         <span className="whatsapp-ping" />
         <MessageCircle size={30} fill="currentColor" />

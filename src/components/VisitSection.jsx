@@ -1,30 +1,40 @@
 import { useState, useEffect } from 'react'
-import { MapPin, Clock, Phone, Mail, Copy, Check, ExternalLink } from 'lucide-react'
+import { MapPin, Clock, Copy, Check, ExternalLink } from 'lucide-react'
 
 export default function VisitSection() {
   const [copied, setCopied] = useState(false)
-  const [isOpenNow, setIsOpenNow] = useState(true)
+  const [isOpenNow, setIsOpenNow] = useState(false)
+  const [openStatus, setOpenStatus] = useState('')
 
-  const address = 'Calle de Ponzano, 42, 28003 Madrid, España'
+  const address = 'Cra. 5 # 10-54, Yumbo, Valle del Cauca'
 
-  // Calculate if the gym is currently open based on local Madrid time
+  // Horarios reales de Atlas Fit:
+  // Lun–Vie: 6 AM – 11 PM
+  // Sábados: 8 AM – 3 PM
+  // Festivos: 9 AM – 2 PM
+  // (Los domingos no está abierto, si no es festivo)
   useEffect(() => {
     const checkOpenStatus = () => {
       const now = new Date()
-      const day = now.getDay() // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+      const day = now.getDay() // 0=Dom, 1=Lun, ..., 6=Sáb
       const hour = now.getHours()
-      const minutes = now.getMinutes()
-      const currentTime = hour + minutes / 60
+      const min = now.getMinutes()
+      const currentTime = hour + min / 60
 
       if (day >= 1 && day <= 5) {
-        // Monday to Friday: 06:30 - 22:30
-        setIsOpenNow(currentTime >= 6.5 && currentTime < 22.5)
+        // Lunes a Viernes: 6:00 AM – 11:00 PM
+        const open = currentTime >= 6 && currentTime < 23
+        setIsOpenNow(open)
+        setOpenStatus(open ? 'Abierto · Cierra a las 11:00 PM' : 'Cerrado · Abre a las 6:00 AM')
       } else if (day === 6) {
-        // Saturday: 08:30 - 20:00
-        setIsOpenNow(currentTime >= 8.5 && currentTime < 20.0)
+        // Sábado: 8:00 AM – 3:00 PM
+        const open = currentTime >= 8 && currentTime < 15
+        setIsOpenNow(open)
+        setOpenStatus(open ? 'Abierto · Cierra a las 3:00 PM' : 'Cerrado · Abre el lunes a las 6:00 AM')
       } else {
-        // Sunday: 09:00 - 15:00
-        setIsOpenNow(currentTime >= 9.0 && currentTime < 15.0)
+        // Domingo: cerrado (salvo festivo, no detectable automáticamente)
+        setIsOpenNow(false)
+        setOpenStatus('Cerrado hoy · Festivos: 9 AM – 2 PM')
       }
     }
 
@@ -45,10 +55,10 @@ export default function VisitSection() {
         <div className="section-header">
           <div className="badge-tag badge-green">Visítanos y Entrena</div>
           <h2 className="section-title">
-            UBICACIÓN & <span className="text-gradient">HORARIOS</span>
+            UBICACIÓN &amp; <span className="text-gradient">HORARIOS</span>
           </h2>
           <p className="section-subtitle">
-            Estamos en una ubicación céntrica y de fácil acceso, con transporte público a 2 minutos y aparcamiento cercano.
+            Estamos en Yumbo, Valle del Cauca. Con acceso fácil y amplio horario para que entrenes cuando mejor te convenga.
           </p>
         </div>
 
@@ -59,8 +69,13 @@ export default function VisitSection() {
               {/* Live Status Badge */}
               <div className={`live-status-pill ${isOpenNow ? 'status-open' : 'status-closed'}`}>
                 <span className="status-dot" />
-                <span>{isOpenNow ? 'Gimnasio Abierto Ahora' : 'Cerrado Actualmente'}</span>
+                <span>{isOpenNow ? '✅ Atlas Fit Abierto Ahora' : '🔒 Cerrado Actualmente'}</span>
               </div>
+              {openStatus && (
+                <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '6px', marginBottom: '16px' }}>
+                  {openStatus}
+                </p>
+              )}
 
               <div className="location-details-list">
                 {/* Address */}
@@ -84,28 +99,21 @@ export default function VisitSection() {
                     <div style={{ marginTop: '8px' }}>
                       <div className="schedule-row">
                         <span className="schedule-day">Lunes a Viernes</span>
-                        <span className="schedule-hours">06:30 — 22:30</span>
+                        <span className="schedule-hours">6:00 AM — 11:00 PM</span>
                       </div>
                       <div className="schedule-row">
                         <span className="schedule-day">Sábados</span>
-                        <span className="schedule-hours">08:30 — 20:00</span>
+                        <span className="schedule-hours">8:00 AM — 3:00 PM</span>
                       </div>
                       <div className="schedule-row">
-                        <span className="schedule-day">Domingos y Festivos</span>
-                        <span className="schedule-hours">09:00 — 15:00</span>
+                        <span className="schedule-day">Festivos</span>
+                        <span className="schedule-hours">9:00 AM — 2:00 PM</span>
+                      </div>
+                      <div className="schedule-row" style={{ marginTop: '10px', borderTop: '1px solid var(--border-subtle)', paddingTop: '10px' }}>
+                        <span className="schedule-day" style={{ color: '#f5a623', fontWeight: 700 }}>⏰ Golden Hour</span>
+                        <span className="schedule-hours" style={{ color: '#f5a623' }}>10:00 AM — 3:00 PM</span>
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Contact phone/email */}
-                <div className="loc-item">
-                  <div className="loc-icon-box">
-                    <Phone size={22} />
-                  </div>
-                  <div>
-                    <h5>Contacto Directo</h5>
-                    <p>+34 912 345 678 · info@paggym.es</p>
                   </div>
                 </div>
               </div>
@@ -113,7 +121,7 @@ export default function VisitSection() {
 
             {/* Action Buttons */}
             <div className="visit-actions">
-              <button 
+              <button
                 className="btn btn-secondary btn-sm"
                 onClick={handleCopyAddress}
               >
@@ -121,9 +129,9 @@ export default function VisitSection() {
                 <span>{copied ? '¡Dirección Copiada!' : 'Copiar Dirección'}</span>
               </button>
 
-              <a 
-                href="https://maps.google.com/?q=Calle+de+Ponzano+42+Madrid" 
-                target="_blank" 
+              <a
+                href="https://maps.google.com/?q=Cra.+5+%23+10-54+Yumbo+Valle+del+Cauca"
+                target="_blank"
                 rel="noreferrer"
                 className="btn btn-primary btn-sm"
               >
@@ -133,11 +141,11 @@ export default function VisitSection() {
             </div>
           </div>
 
-          {/* Right Map Pane (Interactive Iframe with Dark theme filter) */}
+          {/* Right Map Pane */}
           <div className="map-pane">
             <iframe
-              title="Ubicación PAG Gym"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.5647587747805!2d-3.702844823467471!3d40.440626354203174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228f411b0e6f9%3A0x6bcfd30a84f331c1!2sC.%20de%20Ponzano%2C%2042%2C%20Chamber%C3%AD%2C%2028003%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+              title="Ubicación Atlas Fit - Yumbo"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.5!2d-76.497!3d3.5897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a0f0f0f0f0f1%3A0x0!2sCra.+5+%2310-54%2C+Yumbo!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

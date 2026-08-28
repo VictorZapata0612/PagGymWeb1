@@ -13,25 +13,25 @@ export default function Hero() {
             </div>
 
             <h1 className="hero-title">
-              SUPERA TUS <span>LÍMITES</span> <span className="text-gradient">CADA DÍA.</span>
+              ENTRENA EN <span>YUMBO</span> <span className="text-gradient">SIN LÍMITES.</span>
             </h1>
 
             <p className="hero-description">
-              Un gimnasio diseñado para transformar tu rendimiento. Equipamiento de élite, entrenamiento personalizado y una comunidad apasionada sin postureo.
+              Atlas Fit es tu gimnasio en Yumbo. Equipamiento profesional, entrenadores certificados y horarios amplios para que nunca tengas excusas.
             </p>
 
             <div className="hero-actions">
               <a href="#planes" className="btn btn-primary">
-                <span>Ver Membresías</span>
+                <span>Ver Tarifas</span>
                 <ArrowRight size={18} />
               </a>
               <a 
-                href="https://wa.me/34600000000?text=Hola%20PAG%20Gym%2C%20quiero%20reservar%20mi%20clase%20de%20prueba%20gratuita" 
+                href="https://wa.me/573000000000?text=Hola%20Atlas%20Fit%2C%20quiero%20información%20sobre%20membresías" 
                 target="_blank" 
                 rel="noreferrer"
                 className="btn btn-secondary"
               >
-                <span>Probar 1 Clase Gratis</span>
+                <span>Escribirnos por WhatsApp</span>
               </a>
             </div>
 
@@ -57,7 +57,7 @@ export default function Hero() {
             <div className="hero-image-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85" 
-                alt="Atleta entrenando en PAG Gym" 
+                alt="Atleta entrenando en Atlas Fit Yumbo" 
                 className="hero-img"
               />
             </div>

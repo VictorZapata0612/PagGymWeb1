@@ -23,7 +23,7 @@ export default function Navbar() {
           <div className="brand-icon">
             <Dumbbell size={22} strokeWidth={2.5} />
           </div>
-          <span>PAG <span className="brand-tag">GYM</span></span>
+          <span>ATLAS <span className="brand-tag">FIT</span></span>
         </a>
 
         {/* Navigation Links */}
@@ -33,7 +33,7 @@ export default function Navbar() {
           <a href="#clases" className="nav-link" onClick={closeMenu}>Clases</a>
           <a href="#planes" className="nav-link" onClick={closeMenu}>Tarifas</a>
           <a href="#equipo" className="nav-link" onClick={closeMenu}>Entrenadores</a>
-          <a href="#visitanos" className="nav-link" onClick={closeMenu}>Horarios & Mapa</a>
+          <a href="#visitanos" className="nav-link" onClick={closeMenu}>Ubicación & Horarios</a>
           <a href="#faq" className="nav-link" onClick={closeMenu}>Preguntas</a>
         </nav>
 
@@ -43,7 +43,7 @@ export default function Navbar() {
             href="#planes" 
             className="btn btn-primary btn-sm btn-header-cta"
           >
-            <span>Empieza Hoy</span>
+            <span>Ver Tarifas</span>
             <ArrowUpRight size={16} />
           </a>
 
