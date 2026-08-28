@@ -49,7 +49,7 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="footer-brand">
             <a href="#inicio" className="brand-logo">
-              <img src="/logo.png" alt="Atlas Fit" className="brand-logo-image" />
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Atlas Fit" className="brand-logo-image" />
             </a>
             <p>
               Tu gimnasio en Yumbo, Valle del Cauca. Horarios amplios, entrenadores certificados y tarifas accesibles para toda la comunidad.

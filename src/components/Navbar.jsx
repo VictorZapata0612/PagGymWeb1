@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="container header-container">
         {/* Brand Logo */}
         <a href="#inicio" className="brand-logo" onClick={closeMenu}>
-          <img src="/logo.png" alt="Atlas Fit" className="brand-logo-image" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Atlas Fit" className="brand-logo-image" />
         </a>
 
         {/* Navigation Links */}
