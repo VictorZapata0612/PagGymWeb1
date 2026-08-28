@@ -1,4 +1,4 @@
-import { Dumbbell, ArrowUp } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 
 function InstagramIcon({ size = 18 }) {
   return (
@@ -49,17 +49,14 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="footer-brand">
             <a href="#inicio" className="brand-logo">
-              <div className="brand-icon">
-                <Dumbbell size={22} strokeWidth={2.5} />
-              </div>
-              <span>ATLAS <span className="brand-tag">FIT</span></span>
+              <img src="/logo.png" alt="Atlas Fit" className="brand-logo-image" />
             </a>
             <p>
               Tu gimnasio en Yumbo, Valle del Cauca. Horarios amplios, entrenadores certificados y tarifas accesibles para toda la comunidad.
             </p>
             <div className="footer-socials">
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/atlasfit_yumbo/" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="footer-social-btn"
@@ -95,11 +92,11 @@ export default function Footer() {
           <div className="footer-column">
             <h4>Servicios</h4>
             <ul className="footer-links">
-              <li><span className="footer-link">Zona de Peso Libre</span></li>
-              <li><span className="footer-link">Clases HIIT & Funcional</span></li>
-              <li><span className="footer-link">Entrenador Personal</span></li>
-              <li><span className="footer-link">Asesoría Nutricional</span></li>
-              <li><span className="footer-link">Pases Diarios</span></li>
+              <li className="footer-service-item"><a href="#metodo" className="footer-link">Zona de Peso Libre</a><span>Racks, barras y mancuernas.</span></li>
+              <li className="footer-service-item"><a href="#clases" className="footer-link">HIIT & Funcional</a><span>Clases guiadas en grupo.</span></li>
+              <li className="footer-service-item"><a href="#equipo" className="footer-link">Entrenador Personal</a><span>Acompañamiento uno a uno.</span></li>
+              <li className="footer-service-item"><a href="#equipo" className="footer-link">Asesoría Nutricional</a><span>Hábitos que sostienen tu progreso.</span></li>
+              <li className="footer-service-item"><a href="#planes" className="footer-link">Pases Diarios</a><span>Entrena sin permanencia.</span></li>
             </ul>
           </div>
 

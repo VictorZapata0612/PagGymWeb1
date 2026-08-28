@@ -30,7 +30,7 @@ const trainers = [
     birthdayZodiac: 'Tauro ♉',
     funFact: '¡Le gusta festejar su cumple haciendo 100 peso muertos!',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85',
-    instagram: 'https://instagram.com',
+    instagram: 'https://www.instagram.com/atlasfit_yumbo/',
   },
   {
     name: 'Nico Ferrer',
@@ -41,7 +41,7 @@ const trainers = [
     birthdayZodiac: 'Escorpio ♏',
     funFact: 'Si es su cumpleaños, el castigo para todos son 50 burpees.',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=85',
-    instagram: 'https://instagram.com',
+    instagram: 'https://www.instagram.com/atlasfit_yumbo/',
   },
   {
     name: 'Julia Costa',
@@ -52,7 +52,7 @@ const trainers = [
     birthdayZodiac: 'Cáncer ♋',
     funFact: 'Come tarta de proteína sin remordimientos en su día especial.',
     image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=85',
-    instagram: 'https://instagram.com',
+    instagram: 'https://www.instagram.com/atlasfit_yumbo/',
   },
 ]
 

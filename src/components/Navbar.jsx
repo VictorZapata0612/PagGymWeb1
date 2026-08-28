@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Dumbbell, Menu, X, ArrowUpRight } from 'lucide-react'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -20,10 +20,7 @@ export default function Navbar() {
       <div className="container header-container">
         {/* Brand Logo */}
         <a href="#inicio" className="brand-logo" onClick={closeMenu}>
-          <div className="brand-icon">
-            <Dumbbell size={22} strokeWidth={2.5} />
-          </div>
-          <span>ATLAS <span className="brand-tag">FIT</span></span>
+          <img src="/logo.png" alt="Atlas Fit" className="brand-logo-image" />
         </a>
 
         {/* Navigation Links */}
